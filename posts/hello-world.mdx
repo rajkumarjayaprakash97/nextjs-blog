@@ -1,7 +1,66 @@
 ---
-title: Mental models for designers PART 2
-description: "Consider that for a moment: everything we see around us is assumed to have had a cause and is contingent upon."
-date: Sep 14 2021
+title: CRISP DM — Cross Industry Standard Process for Data Mining
+description: "CRISP DM is a project management approach like Agile, Waterfall but meant especially for data mining, data analysis/analytics processes. This methodology was developed to be a general standard for the above mentioned process, but there are also other methodologies like SEMMA(Sample, Explore, Modify, Model, Asses).
+1. Business Understanding
+This is the first step of data analytics/ analysis/ mining. Consider we have a requirement where we need to find whether a person is wearing a mask or not in public.
+
+In this first step we need to know find out
+
+Business Objective — Detecting mask in people’s face
+Goals of data analytics — Here we need to drill down to find the type of problem. The desired outputs are mask worn or not. So it is classification problem.
+Build a preliminary plan of approaching it
+2. Data Understanding(EDA)
+Major actions taken in this step are
+
+Finding data source (Private or public data)
+Exploring data
+Visualising data and finding correlations
+Creating data dictionary
+In this step, based on business understanding, initial data should be gathered, verified, evaluated, explored for insights. This step and previous step should loop through till the developer finds better data and the client is satisfied with the data and approach. Once the final structure of data is found, a Data dictionary is to be created.
+
+3. Data preparation
+
+This step includes
+
+Imputing missing values
+Handling outliers
+Standardising values
+Fixing invalid values
+After Data understanding, the data is still raw after a sanity check. Now we need to handle null values, outliers, maintain proper data type and data structure. And the data need to be brought into a format ready to be applied to a model.
+
+For mask problem, unnecessary images should be deleted, images should be correctly labelled, cropped to uniform resolution, consistent with image color channel. If data is less it should be augmented with strategies like rotation, skewing, scaling, etc,.
+
+Garbage in is garbage out, so this step is one of the most important and tedious steps in this life cycle.
+
+4. Modeling
+Solution for the problem in hand is implemented in this step. According to the problem type we assessed in first step, we try out multiple algorithms on the data prepared looking for better prediction, where it should correctly predict whether people are wearing mask covering nose and mouth. Data preparation and modeling are in loop, where data preparation is different according the algorithm chosen in modeling step.
+
+Major steps in this process are
+
+Training model
+Evaluating metrics
+Fine tuning hyper parameters
+These 3 steps are done in loop to arrive to a better performing model.
+
+Now we have a couple of algorithms in hand ready to predict for a single problem statement.
+
+5. Evaluation
+In this step, we evaluate models on
+
+Metrics
+Business requirement
+Scenarios handled
+Primarily model is evaluated against the business requirement discussed in the first step. Now we have multiple algorithms. We should choose the one which has the best score for chosen evaluation metric, which could be precision, recall or RMSE according to problem statement. Final model is chosen in this step, based on metrics and hardware in hand for execution.
+
+6. Deployment
+Some model predictions need to be real time, some need not be. Predominantly ML models are served as APIs for real time use. In this case we can make use of python backend frameworks like Django, Flask, Fast API to render predictions, where we load models and render predictions based on the input given by user. Key steps in deployment are
+
+Deploying model as API(predominantly)
+Monitoring performance of model and api, to evaluate model on real time data
+These 6 steps constitute CRISP DM. Documenting these 6 steps for every feature, would help us in recording every major decisions taken between team and client. And it will help our model development to be inline with the business understanding.
+
+"
+date: Jan 2 2023
 ---
 
 This is an example post. There's another one [here](/posts/example-post).
